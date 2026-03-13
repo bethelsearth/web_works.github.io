@@ -1,0 +1,104 @@
+/* Dark poster-style theme for the portfolio (HTML + CSS only) */
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+/* Make the page use a column flex layout so it fills the viewport */
+body{display:flex;flex-direction:column;min-height:100vh;font-family:Segoe UI,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;background:linear-gradient(180deg,#071015 0%, #081217 60%);color:var(--muted, #9fb0c8)}
+
+.container{width:100%;max-width:none;margin:0;padding:20px}
+
+/* Make main fill remaining vertical space so footer sits at bottom */
+main{flex:1;display:flex;flex-direction:column}
+
+/* Ensure featured poster row and grid can stretch when there's little content */
+.featured, .grid-section{flex:1;display:flex;flex-direction:column}
+
+:root{
+  --bg:#0b0f14;
+  --panel:#0f1720;
+  --muted:#9fb0c8;
+  --accent:#ff3b3b;
+  --card:#0f1722;
+}
+
+/* Header */
+.site-header{background:transparent;border-bottom:1px solid rgba(255,255,255,0.03);position:sticky;top:0;backdrop-filter:blur(6px);z-index:10}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;padding-left:20px;padding-right:20px}
+.site-title{font-size:1.1rem;color:#fff;font-weight:700}
+.main-nav a{color:var(--muted);text-decoration:none;margin-left:18px;padding:8px 10px;border-radius:6px;font-weight:600}
+.main-nav a.active{background:rgba(255,255,255,0.03);color:#fff}
+.main-nav a:hover{background:rgba(255,255,255,0.04);color:#fff}
+
+/* Hero */
+.hero{min-height:60vh;padding:48px 0 24px 0;text-align:left;display:flex;gap:24px;align-items:center;background-size:cover;background-position:center;background-repeat:no-repeat;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,6,9,0.45),rgba(3,6,9,0.65));z-index:1}
+.hero .hero-content{flex:1;position:relative;z-index:2;max-width:1100px}
+.hero h2{font-size:2rem;color:#fff;margin-bottom:8px}
+.hero p{color:var(--muted);margin-bottom:14px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:900}
+.btn.small{padding:8px 12px;font-size:0.9rem}
+.hero .hero-art{width:260px;height:150px;border-radius:10px;background:linear-gradient(135deg,#2a2f36,#11161a);box-shadow:0 8px 30px rgba(2,6,23,0.7);display:none}
+
+/* Grid / Cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
+.card{background:transparent;color:var(--muted);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.card .poster{position:relative;width:100%;padding-bottom:56.25%; /* 16:9 */ background:linear-gradient(180deg,#111215,#0d1316);border-radius:8px;overflow:hidden;display:block;box-shadow:0 8px 24px rgba(2,6,23,0.6);transition:transform .25s ease,box-shadow .25s ease}
+.card .poster img.poster-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;z-index:0}
+.card .poster::after{content:'';position:absolute;inset:0;background-image:linear-gradient(180deg,transparent 40%,rgba(2,6,23,0.6) 100%);z-index:1;border-radius:inherit}
+.card h3,.card h4{margin-top:10px;color:#fff}
+.card p{color:var(--muted);font-size:0.9rem;margin-top:6px}
+.card .tags{margin-top:8px}
+.tag{display:inline-block;background:rgba(255,255,255,0.045);color:var(--muted);padding:6px 8px;border-radius:999px;font-size:0.75rem;margin-right:8px}
+.card:hover .poster{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
+
+/* Poster title overlay */
+.card .poster .poster-title{position:absolute;left:12px;right:12px;bottom:12px;color:#fff;font-weight:700;font-size:0.95rem;text-shadow:0 2px 8px rgba(0,0,0,0.7);z-index:2}
+
+/* Make textual content inside cards full width and below poster */
+.card .content-inner{max-width:none;margin:0;padding:14px;background:transparent}
+.card .content-inner h2{color:#fff;margin-bottom:6px}
+.card .content-inner ul{margin-top:8px;padding-left:20px}
+
+/* Simple HTML-only image switcher UI (non-functional without JS) */
+.image-switcher{margin-top:10px}
+.image-switcher details{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:8px}
+.image-switcher label{display:block;font-weight:700;color:var(--muted);margin-bottom:6px}
+.image-switcher input[type="text"]{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02);color:var(--muted)}
+.image-switcher .note{font-size:0.85rem;color:var(--muted);margin-top:6px}
+
+/* Featured horizontal poster row (home) */
+.featured .poster-row{display:flex;gap:18px;overflow-x:auto;padding:12px 0 6px}
+.featured .poster-row .card{min-width:220px;flex:0 0 220px}
+.featured .poster-row .card .poster{padding-bottom:140%;border-radius:12px}
+.featured .poster-row::-webkit-scrollbar{height:10px}
+.featured .poster-row::-webkit-scrollbar-track{background:transparent}
+.featured .poster-row::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.06);border-radius:8px}
+
+/* Footer */
+.site-footer{margin-top:36px;padding:24px 0;color:var(--muted);text-align:center;font-size:0.9rem}
+
+/* Forms (dark-friendly) */
+.form-field{display:flex;flex-direction:column;margin-bottom:12px}
+label{font-weight:600;margin-bottom:6px;color:var(--muted)}
+input[type=text],input[type=email],textarea{padding:10px;border:1px solid rgba(255,255,255,0.06);border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted)}
+textarea{min-height:140px;resize:vertical}
+button.btn{background:var(--accent);border:none;color:#fff;padding:10px 16px;border-radius:8px;font-weight:700}
+
+/* Poster gradient variants so posters look distinct without images */
+.grid .card:nth-child(1) .poster, .poster-row .card:nth-child(1) .poster{background-image:linear-gradient(135deg,#0f1722 0%,#6b1e1e 100%)}
+.grid .card:nth-child(2) .poster, .poster-row .card:nth-child(2) .poster{background-image:linear-gradient(135deg,#071029 0%,#1e7aa7 100%)}
+.grid .card:nth-child(3) .poster, .poster-row .card:nth-child(3) .poster{background-image:linear-gradient(135deg,#081217 0%,#7a3fb3 100%)}
+.grid .card:nth-child(4) .poster, .poster-row .card:nth-child(4) .poster{background-image:linear-gradient(135deg,#10131a 0%,#0f6b3a 100%)}
+.grid .card:nth-child(5) .poster, .poster-row .card:nth-child(5) .poster{background-image:linear-gradient(135deg,#151019 0%,#c65d00 100%)}
+.grid .card:nth-child(6) .poster, .poster-row .card:nth-child(6) .poster{background-image:linear-gradient(135deg,#0b0f14 0%,#3b82f6 100%)}
+
+/* Responsive */
+@media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:780px){.grid{grid-template-columns:repeat(2,1fr)}.hero{flex-direction:column}.hero .hero-art{width:100%;height:160px}}
+@media (max-width:420px){.grid{grid-template-columns:1fr}.main-nav a{margin-left:8px;padding:6px 8px}}
+
+/* small helper */
+.small{font-size:0.85rem;color:var(--muted)}
+
+/* Constrain textual content while keeping posters full-width */
+.content-inner{max-width:1100px;margin:0 auto;padding:0 20px}
