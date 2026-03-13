@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Web Technologies Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">My Web Technologies Portfolio</h1>
+            <nav class="main-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="lessons.html">Lessons</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero" style="background-image: url('images/banner.jpg');">
+            <div class="hero-content">
+              <h2>HTML • CSS — Course Projects & Lessons</h2>
+              <p>Welcome — this portfolio showcases exercises and small projects built while learning web technologies using only HTML and CSS.</p>
+              <p><a class="btn" href="lessons.html">View Lessons</a></p>
+            </div>
+            <div class="hero-art" aria-hidden="true"></div>
+        </section>
+
+        <section class="featured">
+            <div class="content-inner">
+                <h3>Featured Projects</h3>
+            </div>
+            <div class="poster-row">
+                <article class="card">
+                    <a class="poster" href="lesson1.html" aria-label="HTML Resume poster"><img class="poster-img" src="images/poster1.jpg" alt="HTML Resume poster"><span class="poster-title">HTML Resume</span></a>
+                    <p>Semantic resume using HTML5 structure and accessible markup.</p>
+                    <div class="tags"><span class="tag">HTML</span><span class="tag">Accessibility</span></div>
+                </article>
+                <article class="card">
+                    <a class="poster" href="lesson2.html" aria-label="CSS Gallery poster"><img class="poster-img" src="images/poster2.jpg" alt="CSS Gallery poster"><span class="poster-title">CSS Gallery</span></a>
+                    <p>Responsive image gallery built with Flexbox and CSS transitions.</p>
+                    <div class="tags"><span class="tag">CSS</span><span class="tag">Flexbox</span></div>
+                </article>
+                <article class="card">
+                    <a class="poster" href="lesson3.html" aria-label="Static Guestbook poster"><img class="poster-img" src="images/poster3.jpg" alt="Static Guestbook poster"><span class="poster-title">Static Guestbook</span></a>
+                    <p>A static guestbook mockup showing form layout and styling (no server).</p>
+                    <div class="tags"><span class="tag">Forms</span><span class="tag">HTML</span></div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Web Technologies Course — Your Name</p>
+            <p class="small">This site uses only static HTML and CSS (no server-side code).</p>
+        </div>
+    </footer>
+</body>
+</html>
